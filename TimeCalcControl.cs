@@ -6,8 +6,8 @@ public partial class TimeCalcControl : UserControl
     private DateTime _init = DateTime.Now;
     private DateTime _result = DateTime.Now;
 
-    public DateTime Init 
-    { 
+    public DateTime Init
+    {
         get => _init;
         set
         {
@@ -16,8 +16,8 @@ public partial class TimeCalcControl : UserControl
             dtpInitTime.Value = value;
         }
     }
-    public DateTime Result 
-    { 
+    public DateTime Result
+    {
         get => _result;
         set
         {
@@ -33,8 +33,6 @@ public partial class TimeCalcControl : UserControl
 
         dtpInitDate.Value = dtpInitTime.Value = Init;
         dtpResultDate.Value = dtpResultTime.Value = Result;
-
-
     }
 
     private void Parameter_Changed(object sender, EventArgs e)
@@ -45,17 +43,15 @@ public partial class TimeCalcControl : UserControl
         _lock = true;
         if(sender == tbHours || sender == tbMinutes)
         {
-            var hours = tbHours.Text;
-            var mins = tbMinutes.Text;
-            var current = dtpInitDate.Value;
+            var init = Init;
 
-            if(int.TryParse(hours, out var parsedHours))
-                current = current.AddHours(parsedHours);
+            if(int.TryParse(tbHours.Text, out var parsedHours))
+                init = init.AddHours(parsedHours);
 
-            if(int.TryParse(mins, out var parsedMins))
-                current = current.AddMinutes(parsedMins);
+            if(int.TryParse(tbMinutes.Text, out var parsedMins))
+                init = init.AddMinutes(parsedMins);
 
-            dtpResultDate.Value = dtpResultTime.Value = current;
+            Result = init;
         }
 
         if(sender is DateTimePicker dtp)
