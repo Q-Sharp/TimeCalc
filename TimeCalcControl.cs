@@ -1,38 +1,43 @@
-﻿namespace TimeCalc;
+﻿using Microsoft.VisualBasic.Devices;
+
+namespace TimeCalc;
 
 public partial class TimeCalcControl : UserControl
 {
     private bool _lock = false;
-    private DateTime _init = DateTime.Now;
-    private DateTime _result = DateTime.Now;
+    private DateTime _init;
+    private DateTime _result;
 
-    public DateTime Init
+    private DateTime Init
     {
         get => _init;
         set
         {
             _init = value;
+            _lock = true;
             dtpInitDate.Value = value;
             dtpInitTime.Value = value;
+            _lock = false;
         }
     }
-    public DateTime Result
+    private DateTime Result
     {
         get => _result;
         set
         {
             _result = value;
+            _lock = true;
             dtpResultDate.Value = value;
             dtpResultTime.Value = value;
+            _lock = false;
         }
     }
 
     public TimeCalcControl()
     {
         InitializeComponent();
-
-        dtpInitDate.Value = dtpInitTime.Value = Init;
-        dtpResultDate.Value = dtpResultTime.Value = Result;
+        Init = DateTime.Now;
+        Result = DateTime.Now;
     }
 
     private void Parameter_Changed(object sender, EventArgs e)

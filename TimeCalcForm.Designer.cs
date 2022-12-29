@@ -31,10 +31,12 @@ partial class TimeCalcForm
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimeCalcForm));
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tpCalc = new System.Windows.Forms.TabPage();
-            this.timeCalcControl = new TimeCalc.TimeCalcControl();
+            this.timeCalcControl1 = new TimeCalc.TimeCalcControl();
             this.tpTimer = new System.Windows.Forms.TabPage();
+            this.timerControl1 = new TimeCalc.TimerControl();
             this.tcMain.SuspendLayout();
             this.tpCalc.SuspendLayout();
+            this.tpTimer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcMain
@@ -50,7 +52,7 @@ partial class TimeCalcForm
             // 
             // tpCalc
             // 
-            this.tpCalc.Controls.Add(this.timeCalcControl);
+            this.tpCalc.Controls.Add(this.timeCalcControl1);
             this.tpCalc.Location = new System.Drawing.Point(4, 31);
             this.tpCalc.Name = "tpCalc";
             this.tpCalc.Padding = new System.Windows.Forms.Padding(3);
@@ -59,18 +61,17 @@ partial class TimeCalcForm
             this.tpCalc.Text = "Calc";
             this.tpCalc.UseVisualStyleBackColor = true;
             // 
-            // timeCalcControl
+            // timeCalcControl1
             // 
-            this.timeCalcControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.timeCalcControl.Init = new System.DateTime(2022, 12, 29, 19, 4, 12, 123);
-            this.timeCalcControl.Location = new System.Drawing.Point(3, 3);
-            this.timeCalcControl.Name = "timeCalcControl";
-            this.timeCalcControl.Result = new System.DateTime(2022, 12, 29, 19, 4, 12, 123);
-            this.timeCalcControl.Size = new System.Drawing.Size(306, 141);
-            this.timeCalcControl.TabIndex = 0;
+            this.timeCalcControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timeCalcControl1.Location = new System.Drawing.Point(3, 3);
+            this.timeCalcControl1.Name = "timeCalcControl1";
+            this.timeCalcControl1.Size = new System.Drawing.Size(306, 141);
+            this.timeCalcControl1.TabIndex = 0;
             // 
             // tpTimer
             // 
+            this.tpTimer.Controls.Add(this.timerControl1);
             this.tpTimer.Location = new System.Drawing.Point(4, 31);
             this.tpTimer.Name = "tpTimer";
             this.tpTimer.Padding = new System.Windows.Forms.Padding(3);
@@ -78,6 +79,14 @@ partial class TimeCalcForm
             this.tpTimer.TabIndex = 1;
             this.tpTimer.Text = "Timer";
             this.tpTimer.UseVisualStyleBackColor = true;
+            // 
+            // timerControl1
+            // 
+            this.timerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.timerControl1.Location = new System.Drawing.Point(3, 3);
+            this.timerControl1.Name = "timerControl1";
+            this.timerControl1.Size = new System.Drawing.Size(306, 141);
+            this.timerControl1.TabIndex = 0;
             // 
             // TimeCalcForm
             // 
@@ -95,6 +104,7 @@ partial class TimeCalcForm
             this.Text = "TimeCalc";
             this.tcMain.ResumeLayout(false);
             this.tpCalc.ResumeLayout(false);
+            this.tpTimer.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
@@ -104,5 +114,6 @@ partial class TimeCalcForm
     private TabControl tcMain;
     private TabPage tpCalc;
     private TabPage tpTimer;
-    private TimeCalcControl timeCalcControl;
+    private TimeCalcControl timeCalcControl1;
+    private TimerControl timerControl1;
 }
